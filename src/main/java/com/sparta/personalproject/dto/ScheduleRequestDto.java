@@ -5,8 +5,9 @@ import lombok.Getter;
 @Getter
 public class ScheduleRequestDto {
 
+    private Long id;
 
-    private String writer;
+    private String manager;
 
     private int passward;
 

@@ -7,7 +7,9 @@ import lombok.Getter;
 
 public class ScheduleManagementResponseDto {
 
-    private String writer;
+    private Long id;
+
+    private String manager;
 
     private int passward;
 
@@ -17,12 +19,5 @@ public class ScheduleManagementResponseDto {
 
     private String content;
 
-    public ScheduleManagementResponseDto(ScheduleManagement scheduleManagement) {
-        this.writer = scheduleManagement.getWriter();
-        this.passward = scheduleManagement.getPassward();
-        this.date = scheduleManagement.getDate();
-        this.title = scheduleManagement.getTitle();
-        this.content = scheduleManagement.getContent();
-
-    }
+    public ScheduleManagementResponseDto(ScheduleRequestDto scheduleRequestDto)
 }
