@@ -43,4 +43,28 @@ public class ScheduleManagementController {
 
         return responseList;
     }
+
+    @PutMapping("/schedules/{writer}")
+    public String updateSchedule(@PathVariable String writer, @RequestBody ScheduleRequestDto requestDto) {
+        // 해당 정보가 DB에 존재하는지 확인
+        if (scheduleManagementList.containsKey(writer)) { // 해당메모 가져오기
+            ScheduleManagement scheduleManagement = scheduleManagementList.get(writer);
+            // 일정 수정
+            scheduleManagement.update(requestDto);
+            return scheduleManagement.getWriter();
+        } else {
+            throw new IllegalArgumentException("존재하지 않는 일정입니다");
+        }
+    }
+
+    @DeleteMapping("/schedules/{passward}")
+    public int deleteScheduleManagement(@PathVariable int passward) {
+        if (scheduleManagementList.containsKey(passward)) {
+            // 해당 일정 삭제
+            scheduleManagementList.remove(passward);
+            return passward;
+        } else {
+            throw new IllegalArgumentException("존재하지 않는 일정입니다");
+        }
+    }
 }

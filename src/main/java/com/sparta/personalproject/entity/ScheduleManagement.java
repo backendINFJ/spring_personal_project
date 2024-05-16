@@ -28,4 +28,11 @@ public class ScheduleManagement {
         this.title = requestDto.getTitle();
         this.content = requestDto.getContent();
     }
+
+    public void update(ScheduleRequestDto requestDto) {
+        this.writer = requestDto.getWriter();
+        this.passward = requestDto.getPassward();
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
+    }
 }
