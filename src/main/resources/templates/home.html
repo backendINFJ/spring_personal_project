@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>일정 작성</h1>
-<form id="scheduleForm">
+<form action="/schedule" method="post">
   <label for="title">할일 제목:</label><br>
   <input type="text" id="title" name="title" required><br>
 
@@ -25,5 +25,9 @@
 
   <button type="submit">일정 저장</button>
 </form>
+
+<!-- 조회 버튼 -->
+<a href="/api/inquiry">일정 조회하기</a>
+
 </body>
 </html>

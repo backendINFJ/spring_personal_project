@@ -14,7 +14,7 @@ public class ScheduleManagement {
 
     private int passward;
 
-    private int date;
+    private double date;
 
     private String title;
 
