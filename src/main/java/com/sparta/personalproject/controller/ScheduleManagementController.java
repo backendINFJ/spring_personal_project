@@ -4,6 +4,7 @@ package com.sparta.personalproject.controller;
 import com.sparta.personalproject.dto.ScheduleManagementResponseDto;
 import com.sparta.personalproject.dto.ScheduleRequestDto;
 import com.sparta.personalproject.entity.ScheduleManagement;
+import com.sparta.personalproject.service.ScheduleManagementService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -18,21 +19,10 @@ public class ScheduleManagementController {
     private final Map<String, ScheduleManagement> scheduleManagementList = new HashMap<>();
 
     @PostMapping("/schedules") // 복수형태 , 숫자 붙으면서 복수형태가 가독성 용이
-    public ScheduleManagementResponseDto schedulecreat(@RequestBody ScheduleRequestDto requestDto) { // 데이터는 바디 부분에 json형태로 넘어오면 Requestbody
-        // RequestDto -> Entity로 수정 저장을 해야되기 때문
+    public ScheduleManagementResponseDto createschedule(@RequestBody ScheduleRequestDto requestDto) { // 데이터는 바디 부분에 json형태로 넘어오면 Requestbody
+        ScheduleManagementService scheduleManagementService = new ScheduleManagementService();
         ScheduleManagement scheduleManagement = new ScheduleManagement(requestDto);
-
-        // Max ID Check
-        String maxwriter = scheduleManagementList.size() > 0 ? Collections.max(scheduleManagementList.keySet()) + scheduleManagement.getWriter() : "작성자:";
-        scheduleManagement.setWriter(maxwriter);
-
-        // DB 저장
-        scheduleManagementList.put(scheduleManagement.getWriter(), scheduleManagement);
-
-        // Entity -> ResponseDto
-        ScheduleManagementResponseDto scheduleManagementResponseDto = new ScheduleManagementResponseDto(scheduleManagement);
-
-        return scheduleManagementResponseDto;
+        return scheduleManagementService.createSchedule(requestDto);
     }
 
     @GetMapping("/schedules")
