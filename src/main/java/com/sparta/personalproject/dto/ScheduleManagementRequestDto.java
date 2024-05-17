@@ -1,19 +1,16 @@
 package com.sparta.personalproject.dto;
 
 import lombok.Getter;
+import lombok.Setter;
+import java.time.LocalDate;
 
 @Getter
-public class ScheduleRequestDto {
-
-    private Long id;
+@Setter
+public class ScheduleManagementRequestDto {
 
     private String manager;
-
-    private int passward;
-
-    private double date;
-
+    private int password;
+    private LocalDate date;
     private String title;
-
     private String content;
 }
