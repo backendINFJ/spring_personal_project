@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/schedules")
 @RequiredArgsConstructor
-public class ScheduleManagementController {
+public class ScheduleManagementController { 
 
     private final ScheduleManagementService scheduleManagementService;
 
