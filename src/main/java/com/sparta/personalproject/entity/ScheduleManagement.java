@@ -15,22 +15,23 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Table (name = "schedule")
-@NoArgsConstructor
+@NoArgsConstructor // 기본 생성자 생성
 public class ScheduleManagement extends Timestamped{
 
-    @Id
+    @Id // 고유 아이디
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+
     private Long id;
-    @Column(name = "담당자",nullable = false)
+    @Column(name = "manager",nullable = false)
     private String manager;
-    @Column(name = "비밀번호",nullable = false)
+    @Column(name = "password",nullable = false)
     private int passward;
-    @Column(name = "작성일",nullable = false)
+    @Column(name = "date",nullable = false)
     private LocalDate date;
-    @Column(name = "할일 제목",nullable = false)
+    @Column(name = "title",nullable = false)
     private String title;
-    @Column(name = "할일 내용",nullable = false)
+    @Column(name = "content",nullable = false)
     private String content;
 
 

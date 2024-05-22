@@ -10,24 +10,21 @@ import org.springframework.transaction.annotation.Transactional; // @Transaction
 
 import java.time.LocalDate;
 
+@Transactional
 @Service
-@RequiredArgsConstructor
 public class ScheduleManagementService {
 
-    private final ScheduleManagementRepository scheduleManagementRepository;
+    private final ScheduleManagementRepository scheduleManagementRepository; // DI 주입
 
-    @Transactional // 모든 메서드에 트랜잭션 적용
-    public ScheduleManagementResponseDto createSchedule(ScheduleManagementRequestDto requestDto) {
-
-        ScheduleManagement schedule = new ScheduleManagement();
-        schedule.setManager(requestDto.getManager());
-        schedule.setDate(LocalDate.now()); // 현재 날짜를 사용하여 작성일을 설정
-        schedule.setTitle(requestDto.getTitle());
-        schedule.setContent(requestDto.getContent());
-
-
-        ScheduleManagement savedSchedule = scheduleManagementRepository.save(schedule);
-
+    public ScheduleManagementService(ScheduleManagementRepository scheduleManagementRepository) {
+        this.scheduleManagementRepository = scheduleManagementRepository; // Autowired 생략
+    }
+    public ScheduleManagementResponseDto createSchedule(ScheduleManagementRequestDto requestDto) { // 일정생성
+        ScheduleManagement scheduleManagement = new ScheduleManagement(requestDto);
+        ScheduleManagement savedSchedule = scheduleManagementRepository.save(scheduleManagement); // 일정 저장
         return new ScheduleManagementResponseDto(savedSchedule);
     }
-}
+    public ScheduleManagementResponseDto findSchedule(Long scheduleId) { // id를 통해 선택 일정 조회
+        ScheduleManagement scheduleManagement = findScheduleManagement(scheduleId);  //DB 조회
+        return new ScheduleManagementResponseDto(scheduleManagement);
+    }

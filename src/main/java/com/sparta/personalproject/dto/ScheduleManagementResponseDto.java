@@ -2,9 +2,12 @@ package com.sparta.personalproject.dto;
 
 import com.sparta.personalproject.entity.ScheduleManagement;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
 @Getter
+@NoArgsConstructor
 public class ScheduleManagementResponseDto {
 
     private Long id;
