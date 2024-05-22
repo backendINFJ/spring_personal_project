@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository // 컴포넌트 스캔방식으로 자동 의존관계 설정
 public interface ScheduleManagementRepository extends JpaRepository<ScheduleManagement,Long> {
-
-    List<ScheduleManagementResponseDto> findAllByOrderByModifiedAtDesc(); // 내림차순 정렬
+    List<ScheduleManagement> findAllByOrderByModifiedAtDesc(); // 내림차순 정렬
 }

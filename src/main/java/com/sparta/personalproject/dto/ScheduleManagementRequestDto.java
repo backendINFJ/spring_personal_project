@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class ScheduleManagementRequestDto {
 
     private String manager;
-    private int password;
+    private String password;
     private LocalDate date;
     private String title;
     private String content;

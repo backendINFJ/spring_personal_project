@@ -29,18 +29,18 @@ public class ScheduleManagementController {
     }
     @GetMapping  // 전체 일정조회
     public List<ScheduleManagementResponseDto> getAllSchedules() {
-        return ScheduleManagementService.getAllSchedules(); // service에서 전체 목록 조회하는로직짜기
+        return scheduleManagementService.getAllSchedules(); // service에서 전체 목록 조회하는로직짜기
     }
 
     @PutMapping("/{schedulesId}") // 선택한 일정 수정
     public ScheduleManagementResponseDto updateSchedule(@PathVariable Long schedulesId, @RequestBody ScheduleManagementRequestDto requestDto) {
-        return ScheduleManagementService.updateSchedule(schedulesId,requestDto,requestDto.getPassword()); // 4단계 조건 : 비밀번호 같이 전달
+        return scheduleManagementService.updateSchedule(schedulesId,requestDto,requestDto.getPassword()); // 4단계 조건 : 비밀번호 같이 전달
     }
 
-    @DeleteMapping("/{schedulesId}") // 선택한 일정 삭제
-    public  ScheduleManagementService deleteSchedule(@PathVariable Long schedulesId, @RequestBody ScheduleManagementRequestDto requestDto) {
-        return ScheduleManagementService.deleteSchedule(schedulesId, requestDto, requestDto.getPassword());
-    } // 여기서 Long가 왜 붙는지 ?
+    @DeleteMapping("/{scheduleId}") // 선택한 일정 삭제
+    public Long deleteSchedule(@PathVariable Long scheduleId, @RequestBody ScheduleManagementRequestDto requestDto) {
+        return scheduleManagementService.deleteSchedule(scheduleId, requestDto.getPassword());
+    }
 
 
 }
