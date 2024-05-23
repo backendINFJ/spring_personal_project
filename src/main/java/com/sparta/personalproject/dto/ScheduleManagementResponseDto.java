@@ -23,5 +23,4 @@ public class ScheduleManagementResponseDto {
         this.title = scheduleManagement.getTitle();
         this.content = scheduleManagement.getContent();
     }
-
 }
