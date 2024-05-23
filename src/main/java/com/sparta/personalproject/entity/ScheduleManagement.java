@@ -34,7 +34,7 @@ public class ScheduleManagement extends Timestamped {
     @Column(name = "content", nullable = false)
     private String content;
 
-@Builder
+@Builder // 사용 X
     public ScheduleManagement(ScheduleManagementRequestDto requestDto) {
         this.manager = requestDto.getManager();
         this.password = requestDto.getPassword();
