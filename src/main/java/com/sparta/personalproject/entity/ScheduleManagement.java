@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,8 +22,6 @@ public class ScheduleManagement extends Timestamped {
 
     @Id // 고유 아이디
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
     private Long id;
     @Column(name = "manager", nullable = false)
     private String manager;
@@ -34,7 +34,9 @@ public class ScheduleManagement extends Timestamped {
     @Column(name = "content", nullable = false)
     private String content;
 
-@Builder // 사용 X
+    @OneToMany(mappedBy = "Comment") // 댓글 추가 1:N
+    private List<Comment>CommentList = new ArrayList<>();
+
     public ScheduleManagement(ScheduleManagementRequestDto requestDto) {
         this.manager = requestDto.getManager();
         this.password = requestDto.getPassword();

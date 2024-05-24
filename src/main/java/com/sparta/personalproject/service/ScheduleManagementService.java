@@ -51,7 +51,7 @@ public class ScheduleManagementService { // 비슷한게 있는지, 공통점 ->
     @Transactional
     public Long deleteSchedule(Long scheduleId, String password) {
         ScheduleManagement scheduleManagement = findScheduleManagement(scheduleId);
-        this.validatePassword(scheduleManagement, password); // 리팩토링 후
+        this.validatePassword(scheduleManagement, password);
         scheduleManagementRepository.delete(scheduleManagement); // 비밀번호가 같을시 삭제
         return scheduleId;
     }
