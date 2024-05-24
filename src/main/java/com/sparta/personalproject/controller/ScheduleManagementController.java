@@ -2,11 +2,8 @@ package com.sparta.personalproject.controller;
 
 import com.sparta.personalproject.dto.ScheduleManagementRequestDto;
 import com.sparta.personalproject.dto.ScheduleManagementResponseDto;
-import com.sparta.personalproject.entity.ScheduleManagement;
 import com.sparta.personalproject.service.ScheduleManagementService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,12 +11,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/schedules")
 @RequiredArgsConstructor
+@RestControllerAdvice
 
 public class ScheduleManagementController {
 
     private final ScheduleManagementService scheduleManagementService;
 
-    @PostMapping("/create") // 일정 생성
+    @PostMapping // 일정 생성
     public ScheduleManagementResponseDto createSchedule(@RequestBody ScheduleManagementRequestDto requestDto) {
         return scheduleManagementService.createSchedule(requestDto);
     }
@@ -41,6 +39,4 @@ public class ScheduleManagementController {
     public Long deleteSchedule(@PathVariable Long scheduleId, @RequestBody ScheduleManagementRequestDto requestDto) {
         return scheduleManagementService.deleteSchedule(scheduleId, requestDto.getPassword());
     }
-
-
-}
+ }
