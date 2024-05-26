@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@EnableJpaAuditing
+@EnableJpaAuditing // 시간 가져오는거 허락한다는 뜻
 @SpringBootApplication
 public class PersonalProjectApplication {
 
