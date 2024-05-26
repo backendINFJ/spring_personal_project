@@ -22,6 +22,7 @@ public class ScheduleManagement extends Timestamped {
 
     @Id // 고유 아이디
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "scheduleId")
     private Long id;
     @Column(name = "manager", nullable = false)
     private String manager;
@@ -34,8 +35,8 @@ public class ScheduleManagement extends Timestamped {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @OneToMany(mappedBy = "Comment") // 댓글 추가 1:N
-    private List<Comment>CommentList = new ArrayList<>();
+//    @OneToMany(mappedBy = "Comment") // 댓글 추가 1:N
+//    private List<Comment>CommentList = new ArrayList<>();
 
     public ScheduleManagement(ScheduleManagementRequestDto requestDto) {
         this.manager = requestDto.getManager();
