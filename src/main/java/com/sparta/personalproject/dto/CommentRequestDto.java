@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 @Setter
 public class CommentRequestDto {
 
+    private String userId;
     private String commentText;
-    private Long userId;
-    private ScheduleManagement scheduleId;
+    private Long scheduleId;
 }
 
 
