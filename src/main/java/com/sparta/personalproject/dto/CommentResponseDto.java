@@ -9,8 +9,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
-public class CommentResponseDto {
-
+public class CommentResponseDto  {
     private Long id; // 댓글의 고유 ID
     private String commentText; // 댓글 내용
     private String userId; // 댓글을 작성한 사용자의 ID
