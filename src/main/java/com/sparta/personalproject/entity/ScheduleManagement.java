@@ -1,14 +1,12 @@
 package com.sparta.personalproject.entity;
 
 import com.sparta.personalproject.dto.ScheduleManagementRequestDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.*;
-import lombok.Builder;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +18,16 @@ import java.util.List;
 @NoArgsConstructor // 기본 생성자 생성
 public class ScheduleManagement extends Timestamped {
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @Id // 고유 아이디
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "scheduleId")
     private Long id;
+
+
     @Column(name = "manager", nullable = false)
     private String manager;
     @Column(name = "password", nullable = false)
@@ -50,7 +54,5 @@ public class ScheduleManagement extends Timestamped {
         this.title = requestDto.getTitle();
         this.content = requestDto.getContent();
         this.manager = requestDto.getManager();
-
-
     }
 }

@@ -6,9 +6,10 @@ import com.sparta.personalproject.entity.Comment;
 import com.sparta.personalproject.entity.ScheduleManagement;
 import com.sparta.personalproject.repository.CommentRepository;
 import com.sparta.personalproject.repository.ScheduleManagementRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityNotFoundException;
 
 @Transactional(readOnly = true) // 트랜잭션 데이터를 변경하지 않겠다.
 @Service
