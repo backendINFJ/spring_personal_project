@@ -5,7 +5,6 @@ import com.sparta.personalproject.dto.CommentRequestDto;
 import com.sparta.personalproject.dto.CommentResponseDto;
 import com.sparta.personalproject.entity.Comment;
 import com.sparta.personalproject.service.CommentService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
