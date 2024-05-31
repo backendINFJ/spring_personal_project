@@ -29,18 +29,18 @@ public class CommentService {
 
     @Transactional
     public CommentResponseDto createComment(CommentRequestDto requestDto) {
-        // 주어진 scheduleId로 ScheduleManagement 엔티티를 찾습니다.
+        // 주어진 scheduleId로 ScheduleManagement 엔티티를 찾기
         ScheduleManagement scheduleManagement = scheduleManagementRepository.findById(requestDto.getScheduleId())
-                .orElseThrow(() -> new EntityNotFoundException("ScheduleManagement not found with id: " + requestDto.getScheduleId()));
+                .orElseThrow(() -> new EntityNotFoundException("ScheduleManagement에서 아이디를 찾을 수 없습니다. " + requestDto.getScheduleId()));
 
-        // Comment 엔티티를 생성하고 필드를 초기화합니다.
+        // Comment 엔티티를 생성하고 필드를 초기화
         Comment comment = new Comment(requestDto);
-        comment.setScheduleManagement(scheduleManagement); // ScheduleManagement 엔티티를 설정합니다.
+        comment.setScheduleManagement(scheduleManagement); // ScheduleManagement 엔티티를 설정
 
-        // Comment 엔티티를 저장하고 저장된 엔티티를 반환합니다.
+        // Comment 엔티티를 저장하고 저장된 엔티티를 반환
         Comment savedComment = commentRepository.save(comment);
 
-        // 저장된 Comment 엔티티를 사용하여 CommentResponseDto를 생성하고 반환합니다.
+        // 저장된 Comment 엔티티를 사용하여 CommentResponseDto를 생성하고 반환
         return new CommentResponseDto(savedComment);
 
     }

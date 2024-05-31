@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -21,6 +22,7 @@ public class Comment extends Timestamped {
     @Column(name = "commentId")
     private Long id; // bigint MYSQL 자료형에서 -21억4천~ +21억4천까지라 long 선언 // 아이디(고유번호)
 
+    @NotNull(message = "댓글 내용을 입력해주세요!")  // 댓글 내용 비었을 때 예외처리
     @Column(name = "commentText", nullable = false, length = 50)
     private String commentText; // 댓글 내용
 
