@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,15 +31,21 @@ public class ScheduleManagement extends Timestamped {
     @Column(name = "scheduleId")
     private Long id;
 
-
+    @NotNull(message = "담당자를 기입해주세요!")
+    @Min(1)
+    @Max(5)
     @Column(name = "manager", nullable = false)
     private String manager;
+   //  @Pattern()
+    @NotNull(message = "패스워드를 입력해주세요.")
     @Column(name = "password", nullable = false)
     private String password;
     @Column(name = "date", nullable = false)
     private LocalDate date;
+    @NotNull(message = "제목을 입력해주세요!")
     @Column(name = "title", nullable = false)
     private String title;
+    @NotNull(message = "내용을 입력해주세요!")
     @Column(name = "content", nullable = false)
     private String content;
 
