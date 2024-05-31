@@ -15,5 +15,6 @@
 <br><br>
 
 📌erd diagram <br>
-<img width="877" alt="스크린샷 2024-05-27 오후 6 52 45" src="https://github.com/backendINFJ/spring_personal_project/assets/163832566/46937b89-1590-4624-a250-a7c065a2ba95">
+<img width="906" alt="image" src="https://github.com/backendINFJ/spring_personal_project/assets/163832566/f8ba1d9c-b21f-4390-b350-4d394cc58f3c">
+
 
