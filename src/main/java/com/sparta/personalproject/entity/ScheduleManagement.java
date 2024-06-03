@@ -17,7 +17,6 @@ import java.util.List;
 
 @Entity
 @Getter
-@Setter
 @Table(name = "schedule")
 @NoArgsConstructor // 기본 생성자 생성
 public class ScheduleManagement extends Timestamped {

@@ -23,7 +23,7 @@ public class JwtTokenProvider {
 
     private String secretKey = "webfirewood";
 
-    // 토큰 유효시간 30분
+    // 토큰 유효시간 60분
     private long tokenValidTime = 60 * 60;
 
     private final UserDetailsService userDetailsService;
